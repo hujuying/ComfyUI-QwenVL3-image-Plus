@@ -1,6 +1,4 @@
-# ComfyUI-QwenVL3-image
-
-[English](#english) | [中文](#中文)
+# ComfyUI-QwenVL3-image-Plus
 
 ---
 
@@ -63,73 +61,10 @@ pip install -r requirements.txt
 - [Qwen Team](https://github.com/QwenLM/Qwen)
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
 - [Hugging Face](https://huggingface.co/)
+- [ComfyUI-QwenVL3-image](https://github.com/yamanacn/ComfyUI-QwenVL3-image)
 
 ### 📄 许可证
 
 本项目采用 MIT 许可证。
 
----
-
-<a name="english"></a>
-## English Documentation
-
-### 📖 Introduction
-
-A custom node for ComfyUI that integrates the **Qwen3-VL-4B-Instruct-FP8** vision-language model for efficient image understanding and description.
-
-### ✨ Key Features
-
-- 🚀 **Efficient FP8 Quantization**: Runs with only ~10GB VRAM
-- 📦 **Batch Processing Support**: Process multiple images at once
-- 💾 **Smart Memory Management**: Optional model persistence for optimized VRAM usage
-- 🔧 **Auxiliary Toolchain**: Includes nodes for text splitting and list processing
-
-### 📋 Hardware Requirements
-
-- **GPU**: NVIDIA RTX 4090 or higher (Compute Capability ≥ 8.9)
-- **VRAM**: ≥ 10GB
-- **System RAM**: 8GB+
-
-> ⚠️ **Important**: This plugin only supports FP8 quantized models, requiring GPUs with compute capability 8.9 or higher.
-
-### 🔧 Installation
-
-#### Git Clone (Recommended)
-
-```bash
-cd ComfyUI/custom_nodes/
-git clone https://github.com/yamanacn/ComfyUI-QwenVL3-image.git
-cd ComfyUI-QwenVL3-image
-pip install -r requirements.txt
-```
-
-#### ComfyUI Manager
-
-1.  Open Manager in ComfyUI
-2.  Search for "QwenVL3"
-3.  Click Install
-
-### 📦 Model Download
-
-The model is downloaded automatically on first use. You can also manually download it from HuggingFace and place it in the `ComfyUI/models/Qwen/` directory.
-
-- **Model URL**: [Qwen/Qwen3-VL-4B-Instruct-FP8](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct-FP8)
-
-### 🎮 Basic Workflow
-
-```
-Image Input → QwenVL3 Image (FP8) → Text Output
-```
-
-For batch processing, connect the `Text Batch Splitter` and `List Selector` nodes to view descriptions for each image separately.
-
-### 🙏 Credits
-
-- [Qwen Team](https://github.com/QwenLM/Qwen)
-- [ComfyUI](https://github.com/comfyanonymous/ComfyUI)
-- [Hugging Face](https://huggingface.co/)
-
-### 📄 License
-
-This project is licensed under the MIT License.
 

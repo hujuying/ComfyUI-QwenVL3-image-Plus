@@ -31,20 +31,14 @@
 
 ```bash
 cd ComfyUI/custom_nodes/
-git clone https://github.com/yamanacn/ComfyUI-QwenVL3-image.git
-cd ComfyUI-QwenVL3-image
+git clone https://github.com/hujuying/ComfyUI-QwenVL3-image-Plus.git
+cd ComfyUI-QwenVL3-image-Plus
 pip install -r requirements.txt
 ```
 
-#### 使用 ComfyUI Manager
-
-1.  在 ComfyUI 中打开 Manager
-2.  搜索 "QwenVL3"
-3.  点击安装
-
 ### 📦 模型下载
 
-模型会在首次使用时自动下载。你也可以从 HuggingFace 手动下载模型，并将其放置在 `ComfyUI/models/Qwen/` 目录下。
+模型会在首次使用时自动下载。你也可以从 HuggingFace 手动下载模型，并将其放置在 `ComfyUI/models/prompt_generator/` 目录下。
 
 - **模型地址**: [Qwen/Qwen3-VL-4B-Instruct-FP8](https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct-FP8)
 

@@ -1,0 +1,261 @@
+{
+  "id": "32899568-cef1-4e80-a13a-c9c44291cf1a",
+  "revision": 0,
+  "last_node_id": 21,
+  "last_link_id": 34,
+  "nodes": [
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        1869.8370214843746,
+        350.8748266601562
+      ],
+      "size": [
+        290.8019714355469,
+        570.7747192382812
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            32
+          ]
+        },
+        {
+          "label": "遮罩",
+          "name": "MASK",
+          "type": "MASK"
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "version": "7.0.1",
+          "widget_ue_connectable": {
+            "image": true,
+            "upload": true
+          }
+        }
+      },
+      "widgets_values": [
+        "ebe510f1a069ba899eec0f82fefd3746d26f2f95ec2378a10ec1cd56cbc53642.png",
+        "image"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 17,
+      "type": "easy showAnything",
+      "pos": [
+        2732.3588101299074,
+        397.60778722933657
+      ],
+      "size": [
+        482.4299999999994,
+        553.9499999999997
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入任何",
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything",
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.3",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.3",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "画面中一位年轻女性身着淡紫色旗袍，饰以金色云纹刺绣，高领开衩设计勾勒出优雅曲线；袖口处红金相间织锦装饰引人注目，搭配红色长袜与精致发簪，尽显古典韵味。背景为中式雅室，墙上挂有水墨山水画，暖光柔和映衬人物轮廓。\n\n整体采用写实摄影风，细腻捕捉面料光泽和肌肤质感，呈现东方美学的柔美与端庄。构图为半身特写，镜头平视略仰角拍摄，聚焦于服饰纹理及面部神态。色彩上紫金主调配红边点缀，营造贵气而不俗的视觉层次感。光线均匀分布，凸显服装立体剪裁，并强化妆容清透感。女子神情恬静温柔，眼神含蓄而灵动，完美融合传统元素与现代审美表达，在静态中流露典雅气质。"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "QwenVLUnloadModelPlus",
+      "pos": [
+        2370,
+        910
+      ],
+      "size": [
+        214.995703125,
+        26
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "qwen_pipe_plus",
+          "type": "QWEN_PIPE_PLUS",
+          "link": 34
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "aux_id": "hujuying/ComfyUI-QwenVL3-image-Plus",
+        "ver": "30b8c67052fa27f45f7053e5399662c51a3b3a20",
+        "Node name for S&R": "QwenVLUnloadModelPlus",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.3"
+        }
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20,
+      "type": "QwenVL3ImagePlus",
+      "pos": [
+        2250,
+        380
+      ],
+      "size": [
+        380,
+        470
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            33
+          ]
+        },
+        {
+          "name": "qwen_pipe_plus",
+          "type": "QWEN_PIPE_PLUS",
+          "links": [
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "hujuying/ComfyUI-QwenVL3-image-Plus",
+        "ver": "30b8c67052fa27f45f7053e5399662c51a3b3a20",
+        "Node name for S&R": "QwenVL3ImagePlus",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.3"
+        }
+      },
+      "widgets_values": [
+        "描述画面中的内容，限制在40个字以内",
+        "帮我描述这张图片的内容，要求从主体内容、场景设定、风格参考、色条色彩、构图视角、细节补充等这些角度来用文字描述图片字数在 300 字以内。不要输出无关的内容。",
+        "",
+        1024,
+        0.7,
+        "auto",
+        true,
+        666,
+        "fixed",
+        [
+          false,
+          true
+        ],
+        [
+          false,
+          true
+        ]
+      ]
+    }
+  ],
+  "links": [
+    [
+      32,
+      5,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      20,
+      0,
+      17,
+      0,
+      "*"
+    ],
+    [
+      34,
+      20,
+      1,
+      21,
+      0,
+      "QWEN_PIPE_PLUS"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "魔搭-图片编辑",
+      "bounding": [
+        1660,
+        120,
+        1826.526123046875,
+        960.4658203125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.1,
+      "offset": [
+        -1693.6699843147298,
+        -279.33513922783357
+      ]
+    },
+    "frontendVersion": "1.29.1",
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "VHS_latentpreview": true,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

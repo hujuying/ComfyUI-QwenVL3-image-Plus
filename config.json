@@ -1,9 +1,9 @@
 {
     "预设提示词": [
-        "Describe the content in the picture, with a limit of 40 words or less",
-        "描述画面中的内容，限制在40个字以内"
+        "Describe the content in the picture, with a limit of 200 words or less",
+        "描述画面中的内容，限制在200个字以内"
     ],
-    "custom_model_path": "/workspace/models/prompt_generator",
+    "custom_model_path": "/models/prompt_generator",
     "Qwen3-VL-4B-Instruct-FP8": {
         "repo_id": "Qwen/Qwen3-VL-4B-Instruct-FP8",
         "default": true,

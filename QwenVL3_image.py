@@ -96,12 +96,27 @@ class ImageProcessor:
 class ModelHandler:
     def __init__(self, configs):
         self.configs = configs
-        custom_path = configs.get("custom_model_path", "")
-        if custom_path and custom_path.strip():
-            self.models_dir = Path(custom_path.strip())
-            print(f"Using custom model path: {self.models_dir}")
+        custom_path = configs.get("custom_model_path", "").strip()
+        # 获取ComfyUI的根目录（例如/workspace/ComfyUI）
+        comfyui_root = Path(folder_paths.base_path)
+        
+        if custom_path:
+            # 处理以/models/开头的路径，自动拼接ComfyUI根目录
+            if custom_path.startswith("/models/"):
+                # 去掉开头的"/"，转为相对路径（例如"models/prompt_generator"）
+                relative_path = custom_path.lstrip("/")
+                self.models_dir = comfyui_root / relative_path
+                print(f"自动拼接路径: ComfyUI根目录 + {relative_path} → {self.models_dir}")
+            else:
+                # 其他路径按原逻辑处理（绝对路径或相对路径）
+                self.models_dir = Path(custom_path)
+                print(f"使用自定义路径: {self.models_dir}")
         else:
-            self.models_dir = Path(folder_paths.models_dir) / "Qwen"
+            # 未设置custom_model_path时，使用默认路径（ComfyUI/models/Qwen）
+            self.models_dir = comfyui_root / "models" / "Qwen"
+            print(f"使用默认路径: {self.models_dir}")
+        
+        # 确保目录存在
         self.models_dir.mkdir(parents=True, exist_ok=True)
 
     def get_model_path(self, model_name):
